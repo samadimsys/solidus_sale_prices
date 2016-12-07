@@ -1,22 +1,27 @@
 Spree Sale Prices
 =================
 
-A Spree Commerce extension (Rails Engine) that lets you set sale prices on products, either by a fixed sale price or a
-percentage off of the original price. Sale prices have a start date, end date and enabled flag to allow you to schedule
-sales, have a historical record of sale prices and put sales on hold.
+A Solidus Commerce extension (Rails Engine) that lets you set sale prices on
+products, either by a fixed sale price or a percentage off of the original
+price. Sale prices have a start date, end date and enabled flag to allow you to
+schedule sales, have a historical record of sale prices and put sales on hold.
+
+Furthermore, it also supports setting sale price upon variant.
 
 Requirements
 ------------
 
-This Gem has been tested with Spree 2.4-stable and Ruby 2.2.1. 
-It does not support Ruby versions earlier than 1.9 for sure.
+It supports Solidus 1.3+. It's working upon 1.4, (and.. *should* work on 2.0+).
+
+However, due to dependency issue (Solidus 2+ depends upon rails 5), the Gemspec
+only declares 1.x as dependency.
 
 Installing
 ----------
 
 In your Gemfile add the following for the latest released version:
 
-    gem 'spree_sale_prices', github: 'renuo/spree-sale-prices', branch: '2.4-stable'
+    gem 'solidus_sale_prices', github: 'flyfy1/solidus_sale_prices'
 
 Install the Gem:
 
