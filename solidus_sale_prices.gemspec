@@ -3,8 +3,8 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'solidus_sale_prices'
   s.version     = '1.0.0'
-  s.summary     = 'Adds sale pricing functionality to Spree Commerce'
-  s.description = 'Adds sale pricing functionality to Spree Commerce. It enables timed sale planning for different currencies.'
+  s.summary     = 'Adds sale pricing functionality to Solidus Commerce'
+  s.description = 'Adds sale pricing functionality to Solidus Commerce. It enables timed sale planning for different currencies.'
   s.required_ruby_version = '>= 1.9.3'
 
   s.author            = 'Renuo GmbH, Jonathan Dean'
@@ -17,11 +17,11 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency "solidus_api", [">= 1.0.0.pre", "< 2"]
-  s.add_dependency "solidus_backend", [">= 1.0.0.pre", "< 2"]
-  s.add_dependency "solidus_core", [">= 1.0.0.pre", "< 2"]
+  s.add_dependency 'solidus_api', ['>= 1.3.0', '< 2']
+  s.add_dependency 'solidus_backend', ['>= 1.3.0', '< 2']
+  s.add_dependency 'solidus_core', ['>= 1.3.0', '< 2']
 
-  s.add_development_dependency 'rspec-rails',  '~> 3.1'
+  s.add_development_dependency 'rspec-rails',  '~> 3.5'
   s.add_development_dependency 'capybara',  '~> 2.4'
   s.add_development_dependency 'database_cleaner',  '~> 1.4'
   s.add_development_dependency 'factory_girl', '~> 4.5'

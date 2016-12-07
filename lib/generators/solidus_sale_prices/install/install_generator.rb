@@ -1,9 +1,9 @@
-module SpreeSalePrices
+module SolidusSalePrices
   module Generators
     class InstallGenerator < Rails::Generators::Base
 
       def add_migrations
-        run 'bundle exec rake railties:install:migrations FROM=spree_sale_prices'
+        run 'bundle exec rake railties:install:migrations FROM=solidus_sale_prices'
       end
 
       def run_migrations
