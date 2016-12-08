@@ -19,7 +19,7 @@ FactoryGirl.define do
   end
 
   factory :international_price, parent: :price do
-    currency { Faker::Currency.code }
+    sequence(:currency) {|n| %w[USD SGD AUD JPY HKD][n % 4] }
   end
 
   factory :multi_price_variant, parent: :variant do
