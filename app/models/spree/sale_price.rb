@@ -11,7 +11,7 @@ module Spree
     # validates :calculator, presence: true
     # accepts_nested_attributes_for :calculator
 
-    scope :active, -> { where(enabled: true).where('(start_at <= ? OR start_at IS NULL) AND (end_at >= ? OR end_at IS NULL)', Time.now, Time.now) }
+    scope :active, -> { where(enabled: true).where('(start_at <= now() OR start_at IS NULL) AND (end_at >= now() OR end_at IS NULL)') }
 
     before_destroy :touch_product
 
