@@ -1,26 +1,23 @@
 module Spree
   class SalePrice < ActiveRecord::Base
+    include Spree::CalculatedAdjustments
 
-    belongs_to :price, class_name: "Spree::Price"
-    delegate_belongs_to :price, :currency
+    belongs_to :price, class_name: "Spree::Price", touch: true
+    delegate :currency, to: :price
 
     has_one :variant, through: :price
 
-    has_one :calculator, class_name: "Spree::Calculator", as: :calculable, dependent: :destroy
-    validates :calculator, presence: true
-    accepts_nested_attributes_for :calculator
+    # has_one :calculator, class_name: "Spree::Calculator", as: :calculable, dependent: :destroy
+    # validates :calculator, presence: true
+    # accepts_nested_attributes_for :calculator
 
     scope :active, -> { where(enabled: true).where('(start_at <= ? OR start_at IS NULL) AND (end_at >= ? OR end_at IS NULL)', Time.now, Time.now) }
 
     before_destroy :touch_product
-    # TODO make this work or remove it
-    #def self.calculators
-    #  Rails.application.config.spree.calculators.send(self.to_s.tableize.gsub('/', '_').sub('spree_', ''))
-    #end
 
-    def calculator_type
-      calculator.class.to_s if calculator
-    end
+    extend DisplayMoney
+    money_methods :calculated_price
+    alias_method :money, :display_calculated_price
 
     def calculated_price
       calculator.compute self
@@ -55,9 +52,8 @@ module Spree
     end
 
     protected
-      def touch_product
-        self.variant.product.touch
-      end
-
+    def touch_product
+      self.variant.product.touch
+    end
   end
 end

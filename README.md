@@ -21,7 +21,7 @@ Installing
 
 In your Gemfile add the following for the latest released version:
 
-    gem 'solidus_sale_prices', github: 'flyfy1/solidus_sale_prices'
+    gem 'solidus_sale_prices'
 
 Install the Gem:
 

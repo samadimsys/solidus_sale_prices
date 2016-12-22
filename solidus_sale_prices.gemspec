@@ -17,9 +17,9 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'solidus_api', ['>= 1.3.0', '< 2']
-  s.add_dependency 'solidus_backend', ['>= 1.3.0', '< 2']
-  s.add_dependency 'solidus_core', ['>= 1.3.0', '< 2']
+  s.add_dependency 'solidus_api', ['>= 1.3.0', '< 3']
+  s.add_dependency 'solidus_backend', ['>= 1.3.0', '< 3']
+  s.add_dependency 'solidus_core', ['>= 1.3.0', '< 3']
 
   s.add_development_dependency 'rspec-rails',  '~> 3.5'
   s.add_development_dependency 'capybara',  '~> 2.4'
