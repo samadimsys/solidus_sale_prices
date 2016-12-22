@@ -1,6 +1,7 @@
 Spree::Price.class_eval do
-  has_many :sale_prices
-  
+  has_many :sale_prices, dependent: :destroy
+  accepts_nested_attributes_for :sale_prices, reject_if: lambda { |val| val[:value].blank? }, allow_destroy: true
+
   def put_on_sale(value, params = {})
     new_sale(value, params).save
   end
@@ -15,7 +16,7 @@ Spree::Price.class_eval do
     }
     return sale_prices.new(sale_price_params)
   end
-  
+
   # TODO make update_sale method
 
   def active_sale
@@ -31,7 +32,7 @@ Spree::Price.class_eval do
   def sale_price
     active_sale.calculated_price if on_sale?
   end
-  
+
   def sale_price=(value)
     if on_sale?
       active_sale.update_attribute(:value, value)
@@ -53,11 +54,11 @@ Spree::Price.class_eval do
   def original_price
     self[:amount]
   end
-  
+
   def original_price=(value)
     self[:amount] = Spree::LocalizedNumber.parse(value)
   end
-  
+
   def price
     on_sale? ? sale_price : original_price
   end
@@ -69,7 +70,7 @@ Spree::Price.class_eval do
       self[:amount] = Spree::LocalizedNumber.parse(price)
     end
   end
-  
+
   def amount
     price
   end
@@ -89,7 +90,7 @@ Spree::Price.class_eval do
   def stop_sale
     active_sale.stop if active_sale.present?
   end
-  
+
   private
     def first_sale(scope)
       scope.order("created_at DESC").first

@@ -8,5 +8,6 @@ Spree::Core::Engine.routes.draw do
       end
     end
 
+    resources :sale_prices, only: [:destroy]
   end
 end
