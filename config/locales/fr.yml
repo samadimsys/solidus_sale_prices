@@ -1,0 +1,11 @@
+fr:
+  sale_price: "Prix en rabais"
+  original_price: "Prix original (devise par défault)"
+  product_sale_prices: "Rabais du produit"
+  add_product_sale_prices: "Ajouter un rabais"
+  sale_price_amount: 'Montant'
+  sale_price_active: 'Actif'
+  sale_price_currency: "Devise"
+  sale_price_start_at: "Date de début du rabais"
+  sale_price_end_at: "Date de fin du rabais"
+  sale_price_enabled: "En vigueur"
