@@ -3,7 +3,7 @@ module Spree
     include Spree::CalculatedAdjustments
 
     belongs_to :price, class_name: "Spree::Price", touch: true
-    delegate :currency, to: :price
+    delegate :currency, to: :price, allow_nil:true
 
     has_one :variant, through: :price
 
