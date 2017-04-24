@@ -4,7 +4,7 @@
 
 #add-line-item
   fieldset
-    legend align="center" = Spree.t('add_product_sale_prices')
+    legend align="center" = t('add_product_sale_prices')
 
     = form_for [:admin, @sellable, Spree::SalePrice.new], remote: true do |f|
       .row
